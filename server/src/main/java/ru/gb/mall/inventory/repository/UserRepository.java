@@ -6,5 +6,6 @@ import ru.gb.mall.inventory.entity.User;
 
 @Repository
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
-    }
+
+}
 
