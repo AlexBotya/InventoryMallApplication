@@ -4,7 +4,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.wildfly.security.password.Password;
 import ru.gb.mall.inventory.entity.User;
-import ru.gb.mall.inventory.entity.UsersAccess;
+import ru.gb.mall.inventory.entity.UserAccess;
 import ru.gb.mall.inventory.exception.EntityNotFoundException;
 import ru.gb.mall.inventory.repository.UserRepository;
 import ru.gb.mall.inventory.repository.UsersAccessRepository;
@@ -72,7 +72,7 @@ public class UserService {
     public  boolean saveUserPassword (Long usersId, Password password){
 
         try {
-            UsersAccess access = findById(usersId).getUsersAccess();
+            UserAccess access = findById(usersId).getUsersAccess();
             access.setPassword(password);
             usersAccessRepository.save(access);
             return  true;
@@ -85,7 +85,7 @@ public class UserService {
     public  boolean saveUserEmail (Long usersId, String email) {
 
         try {
-            UsersAccess access = findById(usersId).getUsersAccess();
+            UserAccess access = findById(usersId).getUsersAccess();
             access.setEmail(email);
             usersAccessRepository.save(access);
             return true;

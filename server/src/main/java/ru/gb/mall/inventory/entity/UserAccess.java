@@ -9,8 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Access")
 @Data
-public
-class UsersAccess {
+public class UserAccess {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

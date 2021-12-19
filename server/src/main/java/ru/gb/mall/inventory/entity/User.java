@@ -1,6 +1,5 @@
 package ru.gb.mall.inventory.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -54,5 +53,5 @@ public class User {
             nullable = false,
             foreignKey = @ForeignKey(name = "FK_USER_USER_ACCESS_ID_RELATION")
     )
-    private UsersAccess usersAccess;
+    private UserAccess usersAccess;
 }

@@ -2,10 +2,10 @@ package ru.gb.mall.inventory.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
-import ru.gb.mall.inventory.entity.UsersAccess;
+import ru.gb.mall.inventory.entity.UserAccess;
 
 import java.util.Optional;
 
-public interface UsersAccessRepository extends PagingAndSortingRepository <UsersAccess, Long> {
-    Optional<UsersAccess> findByEmail(@Param("email") String email);
+public interface UsersAccessRepository extends PagingAndSortingRepository <UserAccess, Long> {
+    Optional<UserAccess> findByEmail(@Param("email") String email);
 }
