@@ -1,5 +1,6 @@
 package ru.gb.mall.inventory.entity;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -19,6 +20,9 @@ import java.util.List;
 @Entity
 @Data
 public class Product {
+    public Product() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
@@ -66,4 +70,49 @@ public class Product {
             foreignKey = @ForeignKey(name = "FK_PRODUCT_DISCOUNT_PRODUCT_ID_RELATION")
     )
     private ProductDiscount discount;
+
+    private Product(Builder builder) {
+        setName(builder.name);
+        setCategory(builder.category);
+        setPrice(builder.price);
+        setDiscount(builder.discount);
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static final class Builder {
+        private String name;
+        private List<ProductCategory> category;
+        private ProductPrice price;
+        private ProductDiscount discount;
+
+        private Builder() {
+        }
+
+        public Builder withName(String val) {
+            name = val;
+            return this;
+        }
+
+        public Builder withCategory(List<ProductCategory> val) {
+            category = val;
+            return this;
+        }
+
+        public Builder withPrice(ProductPrice val) {
+            price = val;
+            return this;
+        }
+
+        public Builder withDiscount(ProductDiscount val) {
+            discount = val;
+            return this;
+        }
+
+        public Product build() {
+            return new Product(this);
+        }
+    }
 }
