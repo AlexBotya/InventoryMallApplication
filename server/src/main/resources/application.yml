@@ -4,11 +4,27 @@ server:
 
 spring:
   datasource:
-    username: <changeit>
-    password: <changeit>
-    url: <changeit>
+    url: jdbc:mysql://localhost:3306/mallInventoryApp
+    username: root
+    password:
+
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    repositories:
+      enabled: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create
+
+  mail:
+    host: smtp.google.com
+    port: 587
+    username: <changeit>
+    password: <changeit>
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
