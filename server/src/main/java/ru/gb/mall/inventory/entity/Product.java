@@ -31,6 +31,14 @@ public class Product {
     @Column(name = "NAME", nullable = false, unique = true, length = 50)
     private String name;
 
+    @ManyToOne
+    @JoinColumn(
+            name = "manufacturer_id",
+            nullable = false,
+            foreignKey = @ForeignKey(name = "FK_PRODUCT_MANUFACTURER_PRODUCT_ID_RELATION")
+    )
+    private ProductManufacturer productManufacturer;
+
     @ManyToMany
     @JoinTable(
             name = "PRODUCT_CATEGORY_RELATION",
